@@ -1,0 +1,74 @@
+identity:
+  author: "erbanku"
+  name: "list_supported_conversions"
+  label:
+    en_US: "List Supported Conversions"
+description:
+  human:
+    en_US: "List CloudConvert conversion operations, with optional office-focused filters."
+  llm: "List CloudConvert conversions filtered by input format, output format, and office-related formats."
+parameters:
+  - name: "input_format"
+    type: "string"
+    required: false
+    label:
+      en_US: "Input Format"
+    form: "llm"
+    human_description:
+      en_US: "Optional input format filter."
+    llm_description: "Optional input format filter, such as pdf, docx, xlsx, or pptx."
+  - name: "output_format"
+    type: "string"
+    required: false
+    label:
+      en_US: "Output Format"
+    form: "llm"
+    human_description:
+      en_US: "Optional output format filter."
+    llm_description: "Optional output format filter, such as pdf, docx, xlsx, or pptx."
+  - name: "include_options"
+    type: "boolean"
+    required: false
+    label:
+      en_US: "Include Options"
+    form: "form"
+    human_description:
+      en_US: "Include CloudConvert operation option metadata."
+    llm_description: "Whether to include operation option metadata."
+    default: false
+  - name: "office_only"
+    type: "boolean"
+    required: false
+    label:
+      en_US: "Office Only"
+    form: "form"
+    human_description:
+      en_US: "Restrict results to common document, spreadsheet, presentation, PDF, text, and HTML formats."
+    llm_description: "Whether to restrict results to office-related formats."
+    default: true
+  - name: "limit"
+    type: "number"
+    required: false
+    label:
+      en_US: "Limit"
+    form: "form"
+    human_description:
+      en_US: "Maximum number of operations to return."
+    llm_description: "Maximum number of operations to return."
+    default: 50
+    min: 1
+    max: 200
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    returned_count:
+      type: number
+    operations:
+      type: array
+      items:
+        type: object
+extra:
+  python:
+    source: "tools/list_supported_conversions.py"

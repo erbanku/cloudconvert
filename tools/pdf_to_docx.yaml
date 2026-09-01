@@ -1,0 +1,101 @@
+identity:
+  author: "erbanku"
+  name: "pdf_to_docx"
+  label:
+    en_US: "PDF to DOCX"
+description:
+  human:
+    en_US: "Convert a Dify uploaded PDF file to a Word DOCX file."
+  llm: "Convert a Dify native uploaded PDF file to DOCX through CloudConvert. Use this for PDF-to-Word workflows."
+parameters:
+  - name: "input_file"
+    type: "file"
+    required: true
+    label:
+      en_US: "PDF File"
+    form: "llm"
+    human_description:
+      en_US: "The PDF file to convert."
+    llm_description: "Dify uploaded PDF file to convert to DOCX."
+  - name: "pages"
+    type: "string"
+    required: false
+    label:
+      en_US: "Pages"
+    form: "llm"
+    human_description:
+      en_US: "Optional page range such as 1-3 or 1,5-7."
+    llm_description: "Optional page range. Leave empty to convert all pages."
+  - name: "password"
+    type: "string"
+    required: false
+    label:
+      en_US: "PDF Password"
+    form: "form"
+    human_description:
+      en_US: "Password for encrypted PDFs."
+    llm_description: "Password for encrypted PDFs, if needed."
+  - name: "connect_hyphens"
+    type: "boolean"
+    required: false
+    label:
+      en_US: "Connect Hyphens"
+    form: "form"
+    human_description:
+      en_US: "Connect hyphenated words when converting text."
+    llm_description: "Whether CloudConvert should connect hyphenated words."
+    default: false
+  - name: "prioritize_visual_appearance"
+    type: "boolean"
+    required: false
+    label:
+      en_US: "Prioritize Visual Appearance"
+    form: "form"
+    human_description:
+      en_US: "Favor visual fidelity over editable reflow."
+    llm_description: "Whether CloudConvert should prioritize visual appearance."
+    default: true
+  - name: "images_ocr"
+    type: "boolean"
+    required: false
+    label:
+      en_US: "Images OCR"
+    form: "form"
+    human_description:
+      en_US: "Run OCR on images in the PDF."
+    llm_description: "Whether CloudConvert should OCR images in the PDF."
+    default: true
+  - name: "wait_timeout_seconds"
+    type: "number"
+    required: false
+    label:
+      en_US: "Wait Timeout Seconds"
+    form: "form"
+    human_description:
+      en_US: "Maximum time to wait for the conversion job."
+    llm_description: "Maximum time to wait for the conversion job."
+    default: 300
+    min: 30
+    max: 900
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    job_id:
+      type: string
+    export_task_id:
+      type: string
+    output_filename:
+      type: string
+    output_format:
+      type: string
+    output_file_count:
+      type: number
+    output_files:
+      type: array
+      items:
+        type: object
+extra:
+  python:
+    source: "tools/pdf_to_docx.py"

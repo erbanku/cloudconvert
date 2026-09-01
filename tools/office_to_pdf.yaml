@@ -1,0 +1,126 @@
+identity:
+  author: "erbanku"
+  name: "office_to_pdf"
+  label:
+    en_US: "Office to PDF"
+description:
+  human:
+    en_US: "Convert Word, Excel, PowerPoint, or OpenDocument files to PDF."
+  llm: "Convert a Dify native uploaded office document, spreadsheet, or presentation to PDF through CloudConvert."
+parameters:
+  - name: "input_file"
+    type: "file"
+    required: true
+    label:
+      en_US: "Office File"
+    form: "llm"
+    human_description:
+      en_US: "Word, Excel, PowerPoint, or OpenDocument file to convert."
+    llm_description: "Dify uploaded office-related file to convert to PDF."
+  - name: "input_format"
+    type: "select"
+    required: false
+    label:
+      en_US: "Input Format"
+    form: "llm"
+    human_description:
+      en_US: "Optional explicit input format. Usually inferred from the filename."
+    llm_description: "Optional explicit input format such as docx, xlsx, pptx, odt, ods, or odp."
+    options:
+      - label:
+          en_US: "Auto"
+        value: ""
+      - label:
+          en_US: "DOCX"
+        value: "docx"
+      - label:
+          en_US: "DOC"
+        value: "doc"
+      - label:
+          en_US: "XLSX"
+        value: "xlsx"
+      - label:
+          en_US: "XLS"
+        value: "xls"
+      - label:
+          en_US: "PPTX"
+        value: "pptx"
+      - label:
+          en_US: "PPT"
+        value: "ppt"
+      - label:
+          en_US: "ODT"
+        value: "odt"
+      - label:
+          en_US: "ODS"
+        value: "ods"
+      - label:
+          en_US: "ODP"
+        value: "odp"
+      - label:
+          en_US: "RTF"
+        value: "rtf"
+    default: ""
+  - name: "engine"
+    type: "select"
+    required: false
+    label:
+      en_US: "Engine"
+    form: "form"
+    human_description:
+      en_US: "Optional CloudConvert engine override."
+    llm_description: "Optional CloudConvert engine override."
+    options:
+      - label:
+          en_US: "Auto"
+        value: ""
+      - label:
+          en_US: "Office"
+        value: "office"
+      - label:
+          en_US: "LibreOffice"
+        value: "libreoffice"
+    default: ""
+  - name: "options_json"
+    type: "string"
+    required: false
+    label:
+      en_US: "Extra Options JSON"
+    form: "form"
+    human_description:
+      en_US: "Optional JSON object of CloudConvert convert task options."
+    llm_description: "Optional JSON object with extra CloudConvert convert task options."
+  - name: "wait_timeout_seconds"
+    type: "number"
+    required: false
+    label:
+      en_US: "Wait Timeout Seconds"
+    form: "form"
+    human_description:
+      en_US: "Maximum time to wait for the conversion job."
+    llm_description: "Maximum time to wait for the conversion job."
+    default: 300
+    min: 30
+    max: 900
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    job_id:
+      type: string
+    export_task_id:
+      type: string
+    output_filename:
+      type: string
+    output_format:
+      type: string
+    output_file_count:
+      type: number
+    output_files:
+      type: array
+      items:
+        type: object
+extra:
+  python:
+    source: "tools/office_to_pdf.py"

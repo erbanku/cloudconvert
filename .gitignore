@@ -1,0 +1,16 @@
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+uv.lock
+.DS_Store
+artifacts/
+*.difypkg
+.env
+.env.*
+.scripts/
+unpacked_plugin/
+vendor/
+pr-body.md
+precheck-report/

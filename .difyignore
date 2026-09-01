@@ -1,0 +1,22 @@
+# Keep the marketplace package to runtime files plus README/privacy.
+# pyproject.toml is for local uv development and is not a runtime install input.
+pyproject.toml
+uv.lock
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+.git/
+.github/
+.DS_Store
+*.difypkg
+.env
+.env.*
+.scripts/
+unpacked_plugin/
+CHANGELOG.md
+vendor/
+pr-body.md
+precheck-report/
+.gitignore
+wget-log

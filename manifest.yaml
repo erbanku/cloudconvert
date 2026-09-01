@@ -1,0 +1,36 @@
+version: "0.1.2"
+type: "plugin"
+author: "erbanku"
+name: "cloudconvert"
+label:
+  en_US: "CloudConvert"
+description:
+  en_US: "Convert PDF, Word, Excel, PowerPoint, and other office-related files through the CloudConvert API using Dify native file inputs and file outputs."
+icon: "icon.svg"
+resource:
+  memory: 536870912
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+plugins:
+  tools:
+    - "provider/cloudconvert.yaml"
+meta:
+  version: "0.1.2"
+  arch:
+    - "amd64"
+  runner:
+    language: "python"
+    version: "3.12"
+    entrypoint: "main"
+  minimum_dify_version: "1.7.0"
+created_at: "2026-05-10T16:48:57Z"
+privacy: "PRIVACY.md"
+repo: "https://github.com/erbanku/cloudconvert"
+contact: "79493862+erbanku@users.noreply.github.com"
+tags:
+  - "productivity"
+  - "utilities"
