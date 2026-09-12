@@ -1,6 +1,6 @@
 # CloudConvert Dify Plugin Privacy Policy
 
-Last updated: 2026-09-01 / Version: 0.1.2
+Last updated: 2026-09-12 / Version: 0.1.3
 
 This policy describes how the Dify tool plugin **erbanku/cloudconvert** ("the Plugin") handles information.
 

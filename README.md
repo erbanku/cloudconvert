@@ -4,6 +4,10 @@ A Dify plugin that converts PDF and office files using the CloudConvert API.
 
 **Namespace:** `erbanku/cloudconvert` · **License:** MIT
 
+**Source:** [https://github.com/erbanku/cloudconvert](https://github.com/erbanku/cloudconvert)
+
+**Contact:** [GitHub issues](https://github.com/erbanku/cloudconvert/issues)
+
 ## Tools
 
 - **pdf_to_docx** — Convert PDF to DOCX (supports page range, password, hyphen handling, OCR, and layout options)

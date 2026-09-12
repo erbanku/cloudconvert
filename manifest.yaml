@@ -1,4 +1,4 @@
-version: "0.1.2"
+version: "0.1.3"
 type: "plugin"
 author: "erbanku"
 name: "cloudconvert"
@@ -19,9 +19,10 @@ plugins:
   tools:
     - "provider/cloudconvert.yaml"
 meta:
-  version: "0.1.2"
+  version: "0.1.3"
   arch:
     - "amd64"
+    - "arm64"
   runner:
     language: "python"
     version: "3.12"
